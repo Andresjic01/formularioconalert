@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Contact form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <section class="form">
+    <form >
+    <h3>Contact Us</h3>
+      
+      <div id="names">
+        <div id="First">
+          <label for="">First Name   *</label>
+          <input id="firstname" type="text">
+          <p id="firspa" class="error">This field is required</p>
+        </div>
+        <div id="Last">
+          <label for="Last">Last Name   *</label>
+          <input id="lastname" type="text">
+          <p id="lastpa" class="error">This field is required</p>
+        </div>
+      </div>
+      
+      <div id="email">
+        <label for="">Email Address   *</label>
+        <input id="emailt" type="email">
+        <p id="emailpa" class="error">Please enter a valid email address</p>
+      </div>
+
+      <div class="radio">
+        <label for="">Query Type   *</label>
+        <div id="selection">
+          <div id="radio1" class="radios" data-value="consulta_general">
+            <input type="radio" name="query_type" id="consulta_general" value="consulta_general">General Enquiry
+          </div>
+          <div id="radio2" class="radios" data-value="solicitud_soporte">
+            <input type="radio" name="query_type" id="solicitud_soporte" value="solicitud_soporte">Support Request
+          </div>
+        </div>
+          <p id="radiopa" class="error">Please select a query type</p>
+      </div>
+
+      <div id="Message">
+        <label for="">Message   *</label>
+        <textarea name="" id="message" rows="6"></textarea>
+        <p id="messagepa" class="error">This field is required</p>
+      </div>
+
+      <div id="checkbox">
+      <input id="checkboxx" type="checkbox">I consent to being contacted by the team   *
+      
+      </div>
+      <p id="checkpa" class="error">To submit this form, please consent to being contacted</p>
+
+      <button id="boton"> Submit </button>
+    </form>
+  </section>
+  
+
+  <!-- 
+
+ 
+
+ 
+
+  Message Sent!
+  Thanks for completing the form. We'll be in touch soon! -->
+  <script>
+    var radio1 = document.getElementById("radio1");
+    var radio2 = document.getElementById("radio2");
+
+    document.querySelectorAll('.radios').forEach((elem) => {
+        elem.addEventListener("click", function() {
+            const radioInput = this.querySelector('input[type="radio"]');
+            radioInput.checked = true;
+            const queryType = radioInput.value;
+            console.log(`Seleccionaste: ${queryType}`);
+            // Aquí puedes realizar cualquier acción que desees con el valor seleccionado
+            if(queryType == "consulta_general"){
+              radio1.classList.add("colorradio");
+              radio2.classList.remove("colorradio");
+            }else if(queryType == "solicitud_soporte"){
+              radio1.classList.remove("colorradio");
+              radio2.classList.add("colorradio");
+            }
+        });
+    });
+</script>
+
+<script src="js/main.js"></script>
+</body>
+</html>
